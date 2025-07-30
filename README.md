@@ -55,9 +55,10 @@ git push origin feature/<feature-name>
 ### 6. Open a Pull Request (PR) to dev
 ✅ Create a PR from your feature/* branch to dev branch on GitHub.
 ```
- - Title the PR clearly
- - Add reviewers if needed
- - Describe the changes in the PR message
+ - Go to GitHub → Pull Requests → “New Pull Request”
+ - Choose base: `dev`, compare: `feature/<your-feature-name>`
+ - Add a meaningful title and description
+ - Request reviewer if needed
 ```
 
 
