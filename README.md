@@ -66,15 +66,28 @@ git push origin feature/<feature-name>
 
 ### 1. Merge dev → staging
 ✅ When all required features are complete and tested on dev, promote to staging for QA.
+> If PR **is not required on `staging`**, maintainers can do this using Git:
 ```
 git checkout staging
 git pull origin staging
 git merge dev
 git push origin staging
 ```
+> Otherwise, create a Pull Request: dev → staging via GitHub UI.
 
-### 2. Merge staging → main
+### 2. Merge staging → main (Needs PR)
 ✅ When testing is successful on staging and ready for release, promote to production.
+> ⚠️ `main` is a protected branch. You **must create a Pull Request** from `staging → main`.
+```
+Steps:
+1. Go to GitHub → Pull Requests → “New Pull Request”
+2. Base: `main`, Compare: `staging`
+3. Add release notes if needed
+4. Request review (admin/lead)
+5. Merge after approval
+```
+
+> 🔁 If `main` is not protected (not recommended for production), you may directly merge using the following commands:
 ```
 git checkout main
 git pull origin main
