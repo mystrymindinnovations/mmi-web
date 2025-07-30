@@ -17,6 +17,10 @@ We use the following branches for managing development and deployment:
 
 ---
 
+>
+>⚠️ Note: This is a private repo on GitHub Free. Branch protection rules (like PRs before merging) are not enforced by GitHub. Team members must follow the branching strategy manually as explaned.
+>
+
 ## 🧑‍💻 Developer Workflow
 > 🚫 **DO NOT push directly to `main`, `staging`, or `dev`**
 
