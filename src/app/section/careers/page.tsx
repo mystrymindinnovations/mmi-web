@@ -1,16 +1,12 @@
-
 'use client';
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
-import type { JobRole } from '@/types/JobRole';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { jobRoles } from '@/data/jobRoles'; // using this directly
 
-interface CareersSectionProps {
-    jobRoles: JobRole[];
-}
-
-export function CareersSection({ jobRoles }: CareersSectionProps) {
+export function CareersSection() {
     return (
         <section className="w-full py-8 md:py-12 bg-secondary" id="careers">
             <div className="container px-4 md:px-6">
@@ -45,3 +41,5 @@ export function CareersSection({ jobRoles }: CareersSectionProps) {
         </section>
     );
 }
+
+export default CareersSection;

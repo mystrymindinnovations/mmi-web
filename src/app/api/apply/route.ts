@@ -1,14 +1,12 @@
-
 'use server';
 
 import { NextRequest, NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 
-
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    
+
     const name = formData.get('name') as string;
     const email = formData.get('email') as string;
     const mobile = formData.get('mobile') as string;
@@ -27,16 +25,18 @@ export async function POST(req: NextRequest) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
-      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+      secure: Number(process.env.SMTP_PORT) === 465,
       auth: {
-        user: process.env.SMTP_USER,
+        user: process.env.SMTP_USER, // e.g., hr@mystrymind.com
         pass: process.env.SMTP_PASS,
       },
     });
 
+    // ✅ Email to Mystrymind HR team
     const mailOptions = {
-      from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: 'singhsandeepkumar008@gmail.com', // Your receiving email address
+      from: `"Mystrymind Careers" <${process.env.SMTP_USER}>`,
+      to: 'team@mystrymind.com', // Or any HR inbox you prefer
+      replyTo: email, // So HR can reply directly to applicant
       subject: `New Job Application for ${role} from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -65,7 +65,27 @@ export async function POST(req: NextRequest) {
       ],
     };
 
-    await transporter.sendMail(mailOptions);
+    // ✅ Auto-reply to candidate
+    const autoReplyOptions = {
+      from: `"Mystrymind HR" <${process.env.SMTP_USER}>`, // consistent sender
+      to: email,
+      subject: `We've received your application for ${role}`,
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2 style="color: #3498db;">Hi ${name},</h2>
+          <p>Thank you for applying for the <strong>${role}</strong> role at Mystrymind.</p>
+          <p>We’ve received your application and our HR team will review it shortly.</p>
+          <p>If your profile matches our requirements, we will reach out to you soon.</p>
+          <br>
+          <p style="font-size: 0.9em; color: #888;">This is an automated confirmation. No need to reply.</p>
+          <p><strong>– Team Mystrymind</strong></p>
+        </div>
+      `,
+    };
+
+    // Send both emails
+    await transporter.sendMail(mailOptions);       // To HR
+    await transporter.sendMail(autoReplyOptions);  // To candidate
 
     return NextResponse.json({ message: 'Application submitted successfully!' }, { status: 200 });
   } catch (error) {

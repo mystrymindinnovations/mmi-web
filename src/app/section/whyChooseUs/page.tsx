@@ -1,4 +1,4 @@
-
+"use client";
 import { Card, CardTitle, CardDescription } from '@/components/ui/card';
 import { Brain, Briefcase, Search, Shield, TrendingUp } from 'lucide-react';
 
@@ -96,3 +96,4 @@ export function WhyChooseUsSection() {
     </section>
   );
 }
+export default WhyChooseUsSection;

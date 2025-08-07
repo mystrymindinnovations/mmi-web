@@ -68,8 +68,8 @@ export function ContactSection() {
               <div className="flex flex-col gap-4">
                 <div className="flex items-center gap-2 text-lg">
                   <Mail className="h-5 w-5 text-primary" />
-                  <a href="mailto:hello@mystrymind.tech" className="hover:underline text-muted-foreground text-base">
-                    hello@mystrymind.tech
+                  <a href="mailto:team@mystrymind.com" className="hover:underline text-muted-foreground text-base">
+                    team@mystrymind.com
                   </a>
                 </div>
                 <div className="flex items-center gap-2 text-lg">
@@ -111,3 +111,4 @@ export function ContactSection() {
     </section>
   );
 }
+export default ContactSection;

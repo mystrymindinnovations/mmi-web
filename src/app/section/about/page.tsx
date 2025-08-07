@@ -1,3 +1,4 @@
+'use client';
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { CheckSquare, Eye, Handshake, Heart, TrendingUp } from 'lucide-react';
@@ -21,7 +22,7 @@ function TargetIcon(props: React.SVGProps<SVGSVGElement>) {
     );
   }
 
-export function AboutUsSection() {
+export function AboutPage() {
   return (
     <section className="w-full py-8 md:py-8 bg-gradient-to-r from-brand-blue to-brand-blue-dark animated-gradient text-primary-foreground" id="about">
       <div className="container mx-auto px-4 md:px-6">
@@ -143,3 +144,4 @@ export function AboutUsSection() {
     </section>
   );
 }
+export default AboutPage;
