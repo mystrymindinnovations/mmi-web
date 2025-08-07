@@ -1,5 +1,5 @@
-"use client";
 
+"use client";
 import React, { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { Menu, ArrowLeft } from "lucide-react";
@@ -19,10 +19,10 @@ import { Logo } from "@/components/logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/#about" },
-  { label: "Services", href: "/#services" },
-  { label: "Career", href: "/#careers" },
-  { label: "Contact Us", href: "/#contact" },
+  { label: "About Us", href: "/section/about" },
+  { label: "Services", href: "/section/services" },
+  { label: "Career", href: "/section/careers" },
+  { label: "Contact Us", href: "/section/contact" },
 ];
 
 export function Header() {

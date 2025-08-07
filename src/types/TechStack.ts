@@ -1,4 +1,5 @@
-export type TechStack = {
+export interface TechStack {
   name: string;
-  icon: JSX.Element;
-};
+  iconLight: string;
+  iconDark: string;
+}

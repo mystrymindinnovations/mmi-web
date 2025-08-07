@@ -49,13 +49,7 @@ const formSchema = z.object({
     ),
 });
 
-const jobRoles = [
-  'UI/UX Designers',
-  'Frontend Developers',
-  'Graphic Designers',
-  'Content Writers',
-  'Web Interns'
-];
+
 
 function ApplyForm() {
   const { toast } = useToast();
@@ -152,27 +146,19 @@ function ApplyForm() {
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
               <FormField
-                control={form.control}
-                name="role"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Applying for</FormLabel>
-                    <Select onValueChange={field.onChange} value={field.value} defaultValue={field.value}>
-                      <FormControl>
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select the role you're applying for" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {jobRoles.map((role) => (
-                          <SelectItem key={role} value={role}>{role}</SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+  control={form.control}
+  name="role"
+  render={({ field }) => (
+    <FormItem>
+      <FormLabel>Applying for</FormLabel>
+      <FormControl>
+        <Input {...field} readOnly className="bg-muted cursor-not-allowed" />
+      </FormControl>
+      <FormMessage />
+    </FormItem>
+  )}
+/>
+
               <FormField
                 control={form.control}
                 name="name"
