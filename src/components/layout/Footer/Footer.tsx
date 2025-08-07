@@ -18,7 +18,7 @@ export function Footer() {
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="hover:opacity-75" target="_blank" rel="noreferrer">
+              <a href="https://x.com/mystrymind?t=PVdHEVLeE0vRQrDIDRSfZQ&s=09" className="hover:opacity-75" target="_blank" rel="noreferrer">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-6 w-6" />
               </a>
