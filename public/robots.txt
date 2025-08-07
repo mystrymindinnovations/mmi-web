@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://mystrymind.com
+
+# Sitemaps
+Sitemap: https://mystrymind.com/sitemap.xml
