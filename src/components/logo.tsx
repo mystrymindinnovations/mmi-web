@@ -9,7 +9,7 @@ export function Logo({ className, onClick }: LogoProps) {
   return (
     <div className="relative w-[160px] h-[80px]" onClick={onClick}>
       <Image
-        src="/assets/logos/logo-h.png"
+        src="/assets/logos/og-image.png"
         alt="Swarikaro Logo"
         fill
         className="object-contain"
