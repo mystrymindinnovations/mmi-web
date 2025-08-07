@@ -26,6 +26,7 @@ export function TechStackSection({ techStack = [] }: TechStackSectionProps) {
           <div className="flex animate-marquee">
             {[...techStack, ...techStack].map((tech, index) => (
               <div key={index} className="flex-shrink-0 mx-4 text-center">
+
                 <div className="w-24 h-24 p-2 flex items-center justify-center">
                   <Image
                     src={resolvedTheme === 'dark' ? tech.iconDark : tech.iconLight}
