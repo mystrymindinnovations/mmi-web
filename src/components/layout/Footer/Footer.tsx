@@ -10,14 +10,15 @@ export function Footer() {
           <div>
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-muted">
-              Pioneering the future with innovative solutions and creative thinking.
+              Tech-Powered Solutions | Innovation-Driven Services<br />
+          🚀 Turning Ideas into Scalable Digital Realities
             </p>
             <div className="mt-8 flex space-x-6 text-background">
               <a href="#" className="hover:opacity-75" target="_blank" rel="noreferrer">
                 <span className="sr-only">Facebook</span>
                 <Facebook className="h-6 w-6" />
               </a>
-              <a href="#" className="hover:opacity-75" target="_blank" rel="noreferrer">
+              <a href="https://x.com/mystrymind?t=PVdHEVLeE0vRQrDIDRSfZQ&s=09" className="hover:opacity-75" target="_blank" rel="noreferrer">
                 <span className="sr-only">Twitter</span>
                 <Twitter className="h-6 w-6" />
               </a>
@@ -33,25 +34,25 @@ export function Footer() {
             <div>
               <p className="font-headline font-medium">Company</p>
               <ul className="mt-6 space-y-4 text-sm">
-                <li><Link href="/#about" className="text-muted transition hover:opacity-75">About Us</Link></li>
-                <li><Link href="/#careers" className="text-muted transition hover:opacity-75">Careers</Link></li>
-                <li><Link href="/#why-choose-us" className="text-muted transition hover:opacity-75">Why Choose Us</Link></li>
+                <li><Link href="/section/about" className="text-muted transition hover:opacity-75">About Us</Link></li>
+                <li><Link href="/section/careers" className="text-muted transition hover:opacity-75">Careers</Link></li>
+                <li><Link href="/section/why-choose-us" className="text-muted transition hover:opacity-75">Why Choose Us</Link></li>
               </ul>
             </div>
             <div>
               <p className="font-headline font-medium">Services</p>
               <ul className="mt-6 space-y-4 text-sm">
-                <li><Link href="/#services" className="text-muted transition hover:opacity-75">AI Development</Link></li>
-                <li><Link href="/#services" className="text-muted transition hover:opacity-75">Web Solutions</Link></li>
-                <li><Link href="/#services" className="text-muted transition hover:opacity-75">Mobile Apps</Link></li>
-                <li><Link href="/#services" className="text-muted transition hover:opacity-75">Cloud Consulting</Link></li>
+                <li><Link href="/services" className="text-muted transition hover:opacity-75">AI Development</Link></li>
+                <li><Link href="/section/services" className="text-muted transition hover:opacity-75">Web Solutions</Link></li>
+                <li><Link href="/section/services" className="text-muted transition hover:opacity-75">Mobile Apps</Link></li>
+                <li><Link href="/section/services" className="text-muted transition hover:opacity-75">Cloud Consulting</Link></li>
               </ul>
             </div>
             <div>
               <p className="font-headline font-medium">Helpful Links</p>
               <ul className="mt-6 space-y-4 text-sm">
-                <li><Link href="/#get-estimate" className="text-muted transition hover:opacity-75">Get Estimates</Link></li>
-                <li><Link href="/faq" className="text-muted transition hover:opacity-75">FAQs</Link></li>
+                <li><Link href="/section/getEstimate" className="text-muted transition hover:opacity-75">Get Estimates</Link></li>
+               <li><Link href="/term&condition" className="text-muted transition hover:opacity-75">Terms Conditions</Link></li>
                 <li><Link href="/privacy-policy" className="text-muted transition hover:opacity-75">Privacy Policy</Link></li>
               </ul>
             </div>
@@ -60,7 +61,7 @@ export function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li className="flex items-start gap-2">
                   <Mail className="h-5 w-5 mt-1 flex-shrink-0" />
-                  <a href="mailto:info@mystrymind.com" className="text-muted transition hover:opacity-75">info@mystrymind.com</a>
+                  <a href="mailto:team@mystrymind.com" className="text-muted transition hover:opacity-75">team@mystrymind.com</a>
                 </li>
                  <li className="flex items-start gap-2">
                    <Phone className="h-5 w-5 mt-1 flex-shrink-0" />

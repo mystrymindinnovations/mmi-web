@@ -6,15 +6,15 @@ import { getEstimate, EstimateInput, EstimateOutput } from '@/ai/flows/getEstima
 import { useToast } from "@/hooks/use-toast";
 import html2canvas from 'html2canvas';
 import jsPDF from "jspdf";
-import { HeroSection } from '@/components/section/Hero/Hero';
-import { ServicesSection } from '@/components/section/Services/Services';
-import { WhyChooseUsSection } from '@/components/section/WhyChooseUs/WhyChooseUs';
-import { AboutUsSection } from '@/components/section/About/About';
-import { DevelopmentProcessSection } from '@/components/section/DevelopmentProcess/DevelopmentProcess';
-import { TechStackSection } from '@/components/section/TechStack/TechStack';
-import { CareersSection } from '@/components/section/Careers/Careers';
-import { ContactSection } from '@/components/section/Contact/Contact';
-import { GetEstimateSection } from '@/components/section/GetEstimate/GetEstimate';
+import { HeroSection } from '@/app/section/hero/page';
+import { ServicesSection } from '@/app/section/services/page';
+import { WhyChooseUsSection } from '@/app/section/whyChooseUs/page';
+import { AboutPage } from '@/app/section/about/page';
+import { DevelopmentProcessSection } from '@/app/section/developmentProcess/page';
+import { TechStackSection } from '@/app/section/techStack/page';
+import { CareersSection } from '@/app/section/careers/page';
+import { ContactSection } from '@/app/section/contact/page';
+import { GetEstimateSection } from '@/app/section/getEstimate/page';
 
 import { techStack } from '@/data/techStack';
 import { jobRoles } from '@/data/jobRoles';
@@ -106,7 +106,7 @@ export default function Home() {
       <HeroSection />
       <ServicesSection />
       <WhyChooseUsSection />
-      <AboutUsSection />
+      <AboutPage />
       <DevelopmentProcessSection />
       <TechStackSection techStack={techStack} />
       <CareersSection jobRoles={jobRoles} />

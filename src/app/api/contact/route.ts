@@ -21,9 +21,11 @@ export async function POST(req: NextRequest) {
       },
     });
 
+    // Email to Admin/Team
     const mailOptions = {
       from: `"${name}" <${process.env.SMTP_USER}>`,
-      to: "singhsandeepkumar008@gmail.com",
+      to: "team@mystrymind.com",
+      replyTo: email,
       subject: `New Inquiry from ${name}`,
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
@@ -40,10 +42,31 @@ export async function POST(req: NextRequest) {
           <hr>
         </div>
       `,
-      attachments: [],
     };
 
-    await transporter.sendMail(mailOptions);
+    // Auto-reply to Candidate
+    const autoReplyOptions = {
+      from: `"Mystrymind Team" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: "We've received your inquiry!",
+      html: `
+        <div style="font-family: Arial, sans-serif; line-height: 1.6;">
+          <h2 style="color: #3498db;">Thank You, ${name}!</h2>
+          <p>We have received your message regarding <strong>${category}</strong>.</p>
+          <p>Our team will get back to you shortly.</p>
+          <hr>
+          <p><strong>Your Message:</strong></p>
+          <p>${message}</p>
+          <hr>
+          <p style="font-size: 0.9em; color: #888;">This is an automated response. Please do not reply to this email.</p>
+          <p><strong>– Team Mystrymind</strong></p>
+        </div>
+      `,
+    };
+
+    // Send both emails
+    await transporter.sendMail(mailOptions);     // To team
+    await transporter.sendMail(autoReplyOptions); // To candidate
 
     return NextResponse.json({ success: true });
   } catch (error) {

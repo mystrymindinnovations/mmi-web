@@ -1,14 +1,13 @@
-
 'use client';
 
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export function HeroSection() {
   return (
     <section className="relative min-h-[calc(87vh-4rem)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary via-brand-blue-dark to-brand-blue animated-gradient">
-
 
       {/* Animated background elements */}
       <div className="absolute inset-0">
@@ -18,7 +17,12 @@ export function HeroSection() {
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <motion.div
+          initial={{ x: -150, opacity: 0 }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="max-w-4xl mx-auto text-center"
+        >
           {/* Main heading */}
           <h1 className="mt-8 text-2xl md:text-4xl font-bold text-primary-foreground mb-4 whitespace-nowrap overflow-hidden text-ellipsis">
             Welcome to <span className="bg-gradient-to-r from-brand-orange to-brand-orange-light bg-clip-text text-transparent">MystryMind</span>
@@ -49,7 +53,7 @@ export function HeroSection() {
               className="group bg-brand-orange hover:bg-brand-orange-light text-white border-0 shadow-lg hover:shadow-xl transition-all duration-300 px-8"
               asChild
             >
-              <Link href="/#contact">
+              <Link href="/section/contact">
                 Get Free Consultant
                 <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
               </Link>
@@ -61,7 +65,7 @@ export function HeroSection() {
               className="bg-white/10 text-primary-foreground border-white/30 hover:bg-white/20 hover:border-white/50 backdrop-blur-sm px-6"
               asChild
             >
-              <Link href="/#get-estimate">
+              <Link href="/section/getEstimate">
                 Get Estimates
               </Link>
             </Button>
@@ -75,7 +79,7 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

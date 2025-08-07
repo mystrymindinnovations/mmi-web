@@ -96,3 +96,4 @@ export function DevelopmentProcessSection() {
     </section>
   );
 }
+export default DevelopmentProcessSection;
