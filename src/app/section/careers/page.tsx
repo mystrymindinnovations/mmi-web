@@ -28,7 +28,7 @@ export function CareersSection() {
                                 </div>
                                 <div className="mt-auto text-right">
                                     <Button asChild className="apply-btn-career px-4 py-2 h-auto">
-                                        <Link href={{ pathname: './apply', query: { role: role.title } }} passHref target="_blank">
+                                        <Link href={{ pathname: '/apply', query: { role: role.title } }} passHref target="_blank">
                                             Apply Now <ArrowRight className="w-4 h-4 ml-1" />
                                         </Link>
                                     </Button>

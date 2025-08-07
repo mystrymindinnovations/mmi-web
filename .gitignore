@@ -15,6 +15,7 @@
 
 # next.js
 /.next/
+.next/trace
 /out/
 
 # production
@@ -23,6 +24,8 @@
 # misc
 .DS_Store
 *.pem
+*.log
+*.dmp
 
 # debug
 npm-debug.log*
@@ -32,10 +35,17 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+.env.local
+.env.development.local
+.env.production.local
 
-# vercel
+# deployment
 .vercel
 
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# IDEs
+.vscode/
+.idea/
