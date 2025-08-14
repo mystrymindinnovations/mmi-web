@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useState } from "react";
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,8 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Mail, Phone, Rocket } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 
 export function ContactSection() {
   const [formData, setFormData] = useState({
@@ -48,12 +50,21 @@ export function ContactSection() {
     { value: "Maintenance & Support", key: "maintenance" },
   ];
 
+  const [leftRef, leftInView] = useInView({ threshold: 0.1, triggerOnce: false });
+  const [rightRef, rightInView] = useInView({ threshold: 0.1, triggerOnce: false });
 
   return (
     <section className="w-full py-8 md:py-12 bg-white" id="contact">
       <div className="container px-4 md:px-6">
         <div className="grid gap-12 md:grid-cols-2 items-start">
-          <div className="space-y-8 animate-slide-in-from-left">
+
+          <motion.div
+            ref={leftRef}
+            initial={{ opacity: 0, x: -50 }}
+            animate={leftInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+            transition={{ duration: 0.7 }}
+            className="space-y-8"
+          >
             <div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient leading-tight">
                 Ready to Build Something Smart?
@@ -80,35 +91,44 @@ export function ContactSection() {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <Card className="animate-slide-in-from-right shadow-lg p-6 bg-white mt-8 md:mt-0">
-            <form className="space-y-4" onSubmit={handleSubmit}>
-              <Input placeholder="Name" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} required />
-              <Input type="email" placeholder="Email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required />
-              <Select onValueChange={(value) => setFormData({ ...formData, category: value })}>
-                <SelectTrigger>
-                  <SelectValue placeholder="Choose your category" />
-                </SelectTrigger>
-                <SelectContent>
-                  {categoryOptions.map((option) => (
-                    <SelectItem key={option.key} value={option.value}>
-                      {option.value}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
-              <Input type="tel" placeholder="Phone Number" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} required />
-              <Textarea placeholder="Message" value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} required />
-              <Button type="submit" className="w-full btn-gradient text-accent-foreground">
-                Submit Inquiry <Rocket className="ml-2 h-4 w-4" />
-              </Button>
-              {status && <p className="text-sm text-muted-foreground">{status}</p>}
-            </form>
-          </Card>
+          <motion.div
+            ref={rightRef}
+            initial={{ opacity: 0, x: 50 }}
+            animate={rightInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
+            transition={{ duration: 0.7 }}
+          >
+            <Card className="shadow-lg p-6 bg-white mt-8 md:mt-0">
+              <form className="space-y-4" onSubmit={handleSubmit}>
+                <Input placeholder="Name" value={formData.name} onChange={e => setFormData({ ...formData, name: e.target.value })} required />
+                <Input type="email" placeholder="Email" value={formData.email} onChange={e => setFormData({ ...formData, email: e.target.value })} required />
+                <Select onValueChange={(value) => setFormData({ ...formData, category: value })}>
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose your category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categoryOptions.map((option) => (
+                      <SelectItem key={option.key} value={option.value}>
+                        {option.value}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                <Input type="tel" placeholder="Phone Number" value={formData.phone} onChange={e => setFormData({ ...formData, phone: e.target.value })} required />
+                <Textarea placeholder="Message" value={formData.message} onChange={e => setFormData({ ...formData, message: e.target.value })} required />
+                <Button type="submit" className="w-full btn-gradient text-accent-foreground">
+                  Submit Inquiry <Rocket className="ml-2 h-4 w-4" />
+                </Button>
+                {status && <p className="text-sm text-muted-foreground">{status}</p>}
+              </form>
+            </Card>
+          </motion.div>
+
         </div>
       </div>
     </section>
-  );
+  );
 }
+
 export default ContactSection;

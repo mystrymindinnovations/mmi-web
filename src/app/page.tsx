@@ -8,15 +8,15 @@ import jsPDF from "jspdf";
 import { useToast } from "@/hooks/use-toast";
 import { getEstimate, EstimateInput, EstimateOutput } from "@/ai/flows/getEstimate";
 
-import { HeroSection } from "@/app/section/hero/page";
-import { ServicesSection } from "@/app/section/services/page";
-import { WhyChooseUsSection } from "@/app/section/whyChooseUs/page";
-import { AboutPage } from "@/app/section/about/page";
-import { DevelopmentProcessSection } from "@/app/section/developmentProcess/page";
-import { TechStackSection } from "@/app/section/techStack/page";
-import { CareersSection } from "@/app/section/careers/page";
-import { ContactSection } from "@/app/section/contact/page";
-import { GetEstimateSection } from "@/app/section/getEstimate/page";
+import { HeroSection } from "@/app/(sections)/hero/page";
+import { ServiceSection } from "@/app/(sections)/service/page";
+import { WhyChooseUsSection } from "@/app/(sections)/whyChooseUs/page";
+import { AboutPage } from "@/app/(sections)/about/page";
+import { DevelopmentProcessSection } from "@/app/(sections)/developmentProcess/page";
+import { TechStackSection } from "@/app/(sections)/techStack/page";
+import { CareersSection } from "@/app/(sections)/careers/page";
+import { ContactSection } from "@/app/(sections)/contact/page";
+import { GetEstimateSection } from "@/app/(sections)/getEstimate/page";
 
 import { techStack } from "@/data/techStack";
 import { jobRoles } from "@/data/jobRoles";
@@ -123,7 +123,7 @@ export default function Home() {
 
       {/* Page Sections */}
       <HeroSection />
-      <ServicesSection />
+      <ServiceSection />
       <WhyChooseUsSection />
       <AboutPage />
       <DevelopmentProcessSection />
