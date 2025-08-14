@@ -35,7 +35,7 @@ const EstimatePDFContent: React.FC<EstimatePDFContentProps> = ({ estimationResul
         </div>
       )}
       <div className="text-center text-sm text-gray-500 max-w-xl mx-auto">
-        <p>This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary in real-world execution</p>
+        <p>This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.</p>
       </div>
     </div>
 
@@ -97,11 +97,13 @@ export function GetEstimateSection({
   const [cardRef, cardInView] = useInView({ threshold: 0.2, triggerOnce: false });
 
   const validateAndEstimate = () => {
-    const wordCount = projectDescription.trim().split(/\s+/).filter(Boolean).length;
+    const wordCount = (projectDescription ?? '').trim().split(/\s+/).filter(Boolean).length;
+
     if (wordCount < 50) {
       alert(`Please enter at least 50 words. You currently have ${wordCount}.`);
       return;
     }
+
     handleEstimate();
   };
 
@@ -157,7 +159,7 @@ export function GetEstimateSection({
                     onChange={(e) => setProjectDescription(e.target.value)}
                   />
                   <div className="text-xs text-primary-foreground/60">
-                    Word count: {projectDescription.trim().split(/\s+/).filter(Boolean).length} / 50
+                    Word count: {(projectDescription ?? '').trim().split(/\s+/).filter(Boolean).length} / 50
                   </div>
                 </div>
 
@@ -196,7 +198,7 @@ export function GetEstimateSection({
                     Service Type: {serviceType}
                   </span>
                   <CardDescription className="text-muted-foreground max-w-md mx-auto">
-                    This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary in real-world execution
+                    This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.
                   </CardDescription>
                 </div>
               )}
