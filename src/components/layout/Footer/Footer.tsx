@@ -16,9 +16,11 @@ export function Footer() {
           <div className="flex flex-col items-center lg:items-start">
             <Logo />
             <p className="mt-4 max-w-xs text-sm text-muted">
+
               Tech-Powered Solutions | Innovation-Driven Services
               <br />
               🚀 Turning Ideas into Scalable Digital Realities
+
             </p>
 
             {/* Social Icons */}
@@ -31,11 +33,13 @@ export function Footer() {
                 <span className="sr-only">Instagram</span>
                 <Instagram className="h-6 w-6 text-[#E1306C]" />
               </a>
+
               <a href="https://x.com/mystrymind?t=PVdHEVLeE0vRQrDIDRSfZQ&s=09" target="_blank" rel="noreferrer" className="hover:opacity-75">
                 <span className="sr-only">X (Twitter)</span>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1227" className="h-5 w-4 fill-white">
                   <path d="M713 513L1160 0H1063L671 450 388 0H0l468 682L0 1226h97l409-478 304 478h390L713 513zM557 674l-47-67-299-426h161l241 343 47 67 320 454H819L557 674z" />
                 </svg>
+
               </a>
               <a href="https://www.linkedin.com/company/mystrymind-innovations-pvt-ltd/" target="_blank" rel="noreferrer" className="hover:opacity-75">
                 <span className="sr-only">LinkedIn</span>
@@ -50,9 +54,11 @@ export function Footer() {
             <div>
               <p className="font-headline font-medium">Company</p>
               <ul className="mt-6 space-y-4 text-sm">
+
                 <li><Link href="/about" className="text-muted transition hover:opacity-75">About Us</Link></li>
                 <li><Link href="/careers" className="text-muted transition hover:opacity-75">Careers</Link></li>
                 <li><Link href="/whyChooseUs" className="text-muted transition hover:opacity-75">Why Choose Us</Link></li>
+
               </ul>
             </div>
 
@@ -60,9 +66,11 @@ export function Footer() {
             <div>
               <p className="font-headline font-medium">Services</p>
               <ul className="mt-6 space-y-4 text-sm">
+
                 <li><Link href="/service" className="text-muted transition hover:opacity-75">Web Solutions</Link></li>
                 <li><Link href="/service" className="text-muted transition hover:opacity-75">Mobile Apps</Link></li>
                 <li><Link href="/service" className="text-muted transition hover:opacity-75">Cloud Consulting</Link></li>
+
               </ul>
             </div>
 
@@ -70,7 +78,9 @@ export function Footer() {
             <div>
               <p className="font-headline font-medium">Helpful Links</p>
               <ul className="mt-6 space-y-4 text-sm">
+
                 <li><Link href="/term&condition" className="text-muted transition hover:opacity-75">Terms & Conditions</Link></li>
+
                 <li><Link href="/privacy-policy" className="text-muted transition hover:opacity-75">Privacy Policy</Link></li>
               </ul>
             </div>
@@ -78,6 +88,7 @@ export function Footer() {
             {/* Contact */}
             <div>
               <p className="font-headline font-medium">Contact</p>
+
               <ul className="mt-6 space-y-4 text-sm flex flex-col items-center lg:items-start">
                 {/* Email */}
                 <li className="flex items-center gap-2">
@@ -87,6 +98,7 @@ export function Footer() {
                   <a href="mailto:team@mystrymind.com" className="text-muted transition hover:opacity-75">
                     team@mystrymind.com
                   </a>
+
                 </li>
 
                 {/* WhatsApp */}
