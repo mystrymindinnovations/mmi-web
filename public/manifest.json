@@ -1,11 +1,11 @@
 {
-  "name": "MystryMind",
-  "short_name": "MystryMind",
+  "name": "Mystrymind Innovations Private Limited",
+  "short_name": "Mystrymind Innovations Private Limited",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#000000",
-  "description": "MystryMind - Innovate beyond limits",
+  "description": "Mystrymind Innovations is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology",
   "icons": [
     {
       "src": "/favicon.ico",
