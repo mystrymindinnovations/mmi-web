@@ -19,11 +19,12 @@ import { Logo } from "@/components/logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
-  { label: "About Us", href: "/section/about" },
-  { label: "Services", href: "/section/services" },
-  { label: "Career", href: "/section/careers" },
-  { label: "Contact Us", href: "/section/contact" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/service" },
+  { label: "Career", href: "/careers" },
+  { label: "Contact Us", href: "/contact" },
 ];
+
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
