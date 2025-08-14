@@ -1,20 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-
-<url><loc>https://mystrymind.com/getEstimate</loc><lastmod>2025-08-14T12:32:17.275Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/hero</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/service</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/techStack</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/careers</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/about</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/whyChooseUs</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/apply/success</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/developmentProcess</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/fqa</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/apply</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/contact</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/privacy-policy</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com/term&amp;condition</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-<url><loc>https://mystrymind.com</loc><lastmod>2025-08-14T12:32:17.278Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-
+<url><loc>https://mystrymind.com/getEstimate</loc><lastmod>2025-08-14T17:25:46.912Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/service</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/techStack</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/whyChooseUs</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/about</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/apply</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/fqa</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/privacy-policy</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/developmentProcess</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/term&amp;condition</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/careers</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/contact</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/hero</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com/apply/success</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+<url><loc>https://mystrymind.com</loc><lastmod>2025-08-14T17:25:46.914Z</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
