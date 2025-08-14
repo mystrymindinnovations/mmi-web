@@ -1,7 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 const tailwindcssAnimate = require('tailwindcss-animate');
 
-module.exports = {
+export default {
   darkMode: ['class'],
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx,mdx}',
@@ -86,20 +86,28 @@ module.exports = {
       },
       keyframes: {
         'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
+          from: {
+            height: '0',
+          },
+          to: {
+            height: 'var(--radix-accordion-content-height)',
+          },
         },
         'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
+          from: {
+            height: 'var(--radix-accordion-content-height)',
+          },
+          to: {
+            height: '0',
+          },
         },
         'slide-in-from-top': {
           '0%': { transform: 'translateY(-100%)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         'slide-in-from-bottom': {
-          '0%': { transform: 'translateY(100%)', opacity: '0' },
-          '100%': { transform: 'translateY(0)', opacity: '1' },
+            '0%': { transform: 'translateY(100%)', opacity: '0' },
+            '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         'slide-in-from-left': {
           '0%': { transform: 'translateX(-100%)', opacity: '0' },
@@ -112,7 +120,7 @@ module.exports = {
         'marquee': {
           'from': { transform: 'translateX(0)' },
           'to': { transform: 'translateX(-50%)' },
-        },
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
