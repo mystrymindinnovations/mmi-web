@@ -1,6 +1,6 @@
 'use client';
 
-import { EstimateOutput, getEstimate } from '@/ai/flows/getEstimate';
+import { EstimateOutput } from '@/ai/flows/getEstimate';
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -96,6 +96,15 @@ export function GetEstimateSection({
 }: GetEstimateSectionProps) {
   const [cardRef, cardInView] = useInView({ threshold: 0.2, triggerOnce: false });
 
+  const validateAndEstimate = () => {
+    const wordCount = projectDescription.trim().split(/\s+/).filter(Boolean).length;
+    if (wordCount < 50) {
+      alert(`Please enter at least 50 words. You currently have ${wordCount}.`);
+      return;
+    }
+    handleEstimate();
+  };
+
   return (
     <>
       <section className="w-full py-8 md:py-12 bg-gradient-to-r from-brand-blue to-brand-blue-dark animated-gradient" id="get-estimate">
@@ -147,9 +156,16 @@ export function GetEstimateSection({
                     value={projectDescription}
                     onChange={(e) => setProjectDescription(e.target.value)}
                   />
+                  <div className="text-xs text-primary-foreground/60">
+                    Word count: {projectDescription.trim().split(/\s+/).filter(Boolean).length} / 50
+                  </div>
                 </div>
 
-                <Button onClick={handleEstimate} disabled={isSubmitting} className="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-lg py-6">
+                <Button
+                  onClick={validateAndEstimate}
+                  disabled={isSubmitting}
+                  className="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-lg py-6"
+                >
                   {isSubmitting ? 'Generating...' : 'Check Estimate'}
                 </Button>
               </CardContent>
@@ -217,4 +233,5 @@ export function GetEstimateSection({
     </>
   );
 }
+
 export default GetEstimateSection;
