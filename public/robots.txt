@@ -2,8 +2,6 @@
 User-agent: *
 Allow: /
 
-# Host
-Host: https://mystrymind.com
-
 # Sitemaps
 Sitemap: https://mystrymind.com/sitemap.xml
+Sitemap: https://mystrymind.com/sitemap-0.xml
