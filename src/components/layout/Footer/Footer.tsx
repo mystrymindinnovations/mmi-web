@@ -1,12 +1,15 @@
 "use client";
 import { Logo } from "@/components/logo";
+
 import { Facebook, Linkedin, Instagram, MapPin, Mail } from "lucide-react";
+
 import Link from "next/link";
 
 export function Footer() {
   return (
     <footer className="bg-foreground text-background">
       <div className="container mx-auto px-4 py-10 sm:px-6 lg:px-8">
+
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
           
           {/* Logo & Description */}
@@ -67,6 +70,7 @@ export function Footer() {
               <li className="flex flex-col sm:flex-row items-center gap-2">
                 <MapPin className="h-5 w-5" />
                 <span> <a 
+
       href="https://maps.app.goo.gl/sz81Z2Xuv36iNQ8t9?g_st=aw" 
       target="_blank" 
       rel="noopener noreferrer"
@@ -74,6 +78,7 @@ export function Footer() {
     >
       Sonarpada, Dombivli East,<br />
       Maharashtra, 421201
+
     </a></span>
               </li>
             </ul>
@@ -107,6 +112,7 @@ export function Footer() {
         {/* Bottom Line */}
         <div className="mt-10 border-t border-muted-foreground pt-4 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} MystryMind Innovations Pvt. Ltd. All rights reserved.
+
         </div>
       </div>
     </footer>

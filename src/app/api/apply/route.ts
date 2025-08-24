@@ -1,9 +1,11 @@
+
 // app/api/apply/route.ts
 'use server';
 
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import { rateLimiter } from "@/lib/rate-limiter";
+
 
 export async function POST(req: NextRequest) {
   try {
@@ -24,6 +26,7 @@ export async function POST(req: NextRequest) {
 
     // ✅ Extract form data
     const formData = await req.formData();
+
 
     const name = formData.get("name") as string;
     const email = formData.get("email") as string;
@@ -48,6 +51,7 @@ export async function POST(req: NextRequest) {
         { message: "reCAPTCHA token missing." },
         { status: 400 }
       );
+
     }
 
     const verifyRes = await fetch("https://www.google.com/recaptcha/api/siteverify", {
@@ -76,18 +80,22 @@ export async function POST(req: NextRequest) {
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT),
+
       secure: process.env.SMTP_SECURE === "true",
+
       auth: {
-        user: process.env.SMTP_USER,
+        user: process.env.SMTP_USER, // e.g., hr@mystrymind.com
         pass: process.env.SMTP_PASS,
       },
     });
+
 
     // ✅ HR email
     const hrMail = {
       from: `"Mystrymind Careers" <${process.env.SMTP_USER}>`,
       to: "team@mystrymind.com",
       replyTo: email,
+
       subject: `New Job Application for ${role} from ${name}`,
       html: `
         <h2>New Job Application</h2>
@@ -112,6 +120,7 @@ export async function POST(req: NextRequest) {
       ],
     };
 
+
     // ✅ Candidate acknowledgment email
     const candidateMail = {
       from: `"Mystrymind Careers" <team@mystrymind.com>`,
@@ -129,6 +138,7 @@ export async function POST(req: NextRequest) {
     // ✅ Send both emails
     await transporter.sendMail(hrMail);
     await transporter.sendMail(candidateMail);
+
 
     return NextResponse.json(
       { message: "Application submitted successfully!" },

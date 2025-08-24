@@ -1,6 +1,8 @@
 'use client';
 
+
 import { EstimateOutput } from '@/ai/flows/getEstimate';
+
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -8,6 +10,7 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader } from '@/components/
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Download, RefreshCw } from 'lucide-react';
+
 import React, { useRef, useState } from 'react';
 import { services } from '@/data/services';
 import { motion } from 'framer-motion';
@@ -19,6 +22,7 @@ import { useInView } from 'react-intersection-observer';
 
 // ✅ PDF Preview Content
 const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ estimationResult }) => (
+
   <div className="p-8 font-sans text-gray-800 bg-white w-[800px]">
     <div className="flex flex-col space-y-4 mb-6">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 border-b pb-4">
@@ -36,7 +40,9 @@ const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ es
         </div>
       )}
       <div className="text-center text-sm text-gray-500 max-w-xl mx-auto">
+
         <p>This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.</p>
+
       </div>
     </div>
 
@@ -65,6 +71,7 @@ const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ es
     </div>
   </div>
 );
+
 
 export default function GetEstimatePage() {
   const [serviceType, setServiceType] = useState('');
@@ -146,12 +153,14 @@ export default function GetEstimatePage() {
       <section className="w-full py-8 md:py-12 bg-gradient-to-r from-brand-blue to-brand-blue-dark animated-gradient" id="get-estimate">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-8">
+
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-2 text-primary-foreground">
               Let's Make Tech Less Mysterious
             </h1>
             <h2 className="mt-2 text-lg text-primary-foreground/80">
               Use our AI-powered tools for quick project insights.
             </h2>
+
           </div>
 
           <motion.div
@@ -192,6 +201,7 @@ export default function GetEstimatePage() {
                     value={projectDescription}
                     onChange={(e) => setProjectDescription(e.target.value)}
                   />
+
                   <div className="text-xs text-primary-foreground/60">
                     Word count: {(projectDescription ?? '').trim().split(/\s+/).filter(Boolean).length} / 50
                   </div>
@@ -202,6 +212,7 @@ export default function GetEstimatePage() {
                   disabled={isSubmitting}
                   className="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-lg py-6"
                 >
+
                   {isSubmitting ? 'Generating...' : 'Check Estimate'}
                 </Button>
               </CardContent>
@@ -209,6 +220,7 @@ export default function GetEstimatePage() {
           </motion.div>
         </div>
       </section>
+
 
       {/* Hidden PDF for download */}
       {estimationResult && (
@@ -218,6 +230,7 @@ export default function GetEstimatePage() {
       )}
 
       {/* Dialog */}
+
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-lg w-full max-h-[90vh] overflow-y-auto bg-secondary text-foreground p-0 rounded-lg">
           <div className="p-6 space-y-6">
@@ -234,7 +247,9 @@ export default function GetEstimatePage() {
                     Service Type: {serviceType}
                   </span>
                   <CardDescription className="text-muted-foreground max-w-md mx-auto">
+
                     This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.
+
                   </CardDescription>
                 </div>
               )}
@@ -271,3 +286,5 @@ export default function GetEstimatePage() {
     </>
   );
 }
+
+

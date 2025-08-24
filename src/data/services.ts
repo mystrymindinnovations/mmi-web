@@ -1,4 +1,5 @@
 // data/services.ts
+
 import { Smartphone, Globe,  SearchCode, Wrench, Paintbrush ,Cpu } from "lucide-react";
 import type { Service } from "@/types/Service";
 
@@ -8,6 +9,7 @@ export const services: Service[] = [
   {
     title: "Mobile App Development",
     description: "Smooth, scalable, and user-friendly apps.",
+
     icon: Smartphone,
     direction: "left",
     features: [
@@ -18,8 +20,10 @@ export const services: Service[] = [
     ],
   },
   {
+
     title: "Web Development",
     description: "SEO-focused, lightning-fast websites.",
+
     icon: Globe,
     direction: "right",
     features: [
@@ -29,6 +33,7 @@ export const services: Service[] = [
       "Deployment & maintenance (Vercel, Render)",
     ],
   },
+
  {
   title: "AI & Cloud",
   description: "Automations and infrastructure built for growth.",
@@ -41,6 +46,8 @@ export const services: Service[] = [
     "Scalable infrastructure setup",
   ],
 },
+
+ 
 
   {
     title: "SEO & Digital Presence",
@@ -66,6 +73,7 @@ export const services: Service[] = [
       "Emergency support",
     ],
   },
+
  {
   title: "Branding & Creative",
   description: "Designs that attract, connect & sell.",

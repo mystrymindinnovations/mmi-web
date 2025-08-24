@@ -43,6 +43,7 @@ export async function getEstimate(input: EstimateInput): Promise<EstimateOutput>
     prompt: `
       You are an expert project manager at a software development agency called MystryMind.
 
+
 Your task is to provide a realistic project timeline estimate based on the user's project description and selected service type.
 
 IMPORTANT:
@@ -79,6 +80,7 @@ Example Output:
 User Input:
 Service Type: {{{serviceType}}}
 Project Description: {{{projectDescription}}}
+
 
     `,
   });

@@ -1,6 +1,7 @@
 import type { JobRole } from '@/types/JobRole';
 
 export const jobRoles: JobRole[] = [
+
   { 
     title: 'UI/UX Designers', 
     experience: 'Design user-friendly layouts and intuitive experiences that make our software and mobile apps easy and enjoyable to use. Join MystryMind Innovations and shape the look and feel of our innovative software development and mobile application projects.'
@@ -25,4 +26,5 @@ export const jobRoles: JobRole[] = [
     title: 'Mobile App Developers', 
     experience: 'Develop and optimize mobile apps for Android and iOS platforms with a focus on performance and user experience. Join MystryMind Innovations and help create our next generation of innovative mobile application projects.'
   },
+
 ];

@@ -4,7 +4,9 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Code, Palette, Rocket, Search, TestTubeDiagonal, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+
 import Head from 'next/head';
+
 
 const cards = [
   {
@@ -12,40 +14,52 @@ const cards = [
     title: 'Discover & Understand',
     description:
       "We start by listening. Whether it's a new app idea or a website revamp, we dig deep into your goals, audience, and challenges.",
+
+
   },
   {
     Icon: Palette,
     title: 'Design & Prototype',
     description:
       "Our UI/UX team builds wireframes and visual prototypes to bring your idea to life — ensuring it’s both functional and beautiful.",
+
+
   },
   {
     Icon: Code,
     title: 'Build & Develop',
     description:
       "We write clean, scalable code using modern tech stacks — from mobile apps to web portals. You get regular updates and review links during development.",
+
+
   },
   {
     Icon: TestTubeDiagonal,
     title: 'Test & Iterate',
     description:
       "We run through device tests, use cases, and feedback loops. We fix bugs, polish the experience, and make sure it’s production-ready.",
+
+
   },
   {
     Icon: Rocket,
     title: 'Launch & Support',
     description:
       "We help you go live — whether it's on app stores, the web, or your own cloud infrastructure. Post-launch, we stick around for support, improvements, or scaling.",
+
+
   },
   {
     Icon: TrendingUp,
     title: 'Maintain & Evolve',
     description:
       "We offer regular updates, feature enhancements, and technical maintenance as your product grows and your audience expands.",
+
   },
 ];
 
 export function DevelopmentProcessSection() {
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "HowTo",
@@ -118,6 +132,7 @@ export function DevelopmentProcessSection() {
         </div>
       </section>
     </>
+
   );
 }
 

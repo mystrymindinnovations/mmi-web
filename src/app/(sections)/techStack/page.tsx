@@ -3,15 +3,18 @@
 import Image from 'next/image';
 import { useTheme } from 'next-themes';
 import type { TechStack } from '@/types/TechStack';
+
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 interface TechStackSectionProps {
   techStack?: TechStack[];
+
 }
 
 export function TechStackSection({ techStack = [] }: TechStackSectionProps) {
   const { resolvedTheme } = useTheme();
+
   const { ref, inView } = useInView({ threshold: 0.2, triggerOnce: false });
 
   return (
@@ -34,6 +37,7 @@ export function TechStackSection({ techStack = [] }: TechStackSectionProps) {
         </motion.div>
 
         {/* Marquee of tech stack */}
+
         <div className="relative w-full overflow-hidden">
           <div className="flex animate-marquee">
             {[...techStack, ...techStack].map((tech, index) => (
@@ -41,8 +45,10 @@ export function TechStackSection({ techStack = [] }: TechStackSectionProps) {
                 <div className="w-24 h-24 p-2 flex items-center justify-center">
                   <Image
                     src={resolvedTheme === 'dark' ? tech.iconDark : tech.iconLight}
+
                     alt={`MystryMind – ${tech.name} icon`}
                     title={`MystryMind – ${tech.name} technology`}
+
                     width={48}
                     height={48}
                     className="object-contain"

@@ -4,11 +4,14 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
+
 import Script from "next/script";
+
 
 const metadataBase = new URL("https://mystrymind.com");
 
 export const metadata: Metadata = {
+
   title: "MystryMind Innovations Private Limited",
   description:
     "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
@@ -17,6 +20,7 @@ export const metadata: Metadata = {
     title: "MystryMind Innovations Private Limited",
     description:
       "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
+
     url: "https://mystrymind.com",
     siteName: "MystryMind",
     images: [
@@ -32,9 +36,11 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+
     title: "MystryMind Innovations Private Limited",
     description:
       "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions.",
+
     images: [new URL("/assets/logos/og-image.png", metadataBase).toString()],
   },
 };
@@ -69,7 +75,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
+
               name: "MystryMind Innovations Private Limited",
+
               url: "https://mystrymind.com",
               logo: "https://mystrymind.com/assets/logos/og-image.png",
               sameAs: [
@@ -82,7 +90,9 @@ export default function RootLayout({
           }}
         />
       </head>
+
       <body className={cn("min-h-screen bg-background font-body antialiased")}>
+
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>

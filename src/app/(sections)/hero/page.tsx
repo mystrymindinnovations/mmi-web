@@ -21,6 +21,7 @@ export function HeroSection() {
         <motion.div
           initial={{ x: -50, opacity: 0 }} // ✅ reduced from -150 to avoid overflow
           animate={{ x: 0, opacity: 1 }}
+
            viewport={{ once: false, amount: 0.4 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
 
@@ -79,6 +80,7 @@ export function HeroSection() {
             <Link href="/getEstimate">Get a Free Estimate</Link>
           </Button>
         </div>
+
 
           {/* Scroll indicator */}
           <div className="mt-16" aria-label="Scroll down indicator">

@@ -1,5 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
+
   siteUrl: 'https://mystrymind.com',
   generateRobotsTxt: true,
   sitemapSize: 7000,
@@ -25,4 +26,5 @@ module.exports = {
     // Disable automatic Host entry
     host: undefined
   }
+
 };

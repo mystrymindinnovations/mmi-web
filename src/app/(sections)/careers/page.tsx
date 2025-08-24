@@ -5,6 +5,7 @@ import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 
+
 import { jobRoles } from '@/data/jobRoles';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -116,6 +117,7 @@ export function CareersSection() {
                                                 asChild
                                                 className="apply-btn-career px-4 py-2 h-auto m-0 rounded-none absolute bottom-0 right-0"
                                             >
+
                                                 <Link
                                                     href={{ pathname: '/apply', query: { role: role.title } }}
                                                     passHref
@@ -124,6 +126,7 @@ export function CareersSection() {
                                                     Apply Now <ArrowRight className="w-4 h-4 ml-1" />
                                                 </Link>
                                             </Button>
+
                                         </Card>
                                     </motion.div>
                                 );
@@ -133,6 +136,7 @@ export function CareersSection() {
                 </div>
             </section>
         </>
+
     );
 }
 

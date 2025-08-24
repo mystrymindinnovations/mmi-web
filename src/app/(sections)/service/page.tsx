@@ -15,12 +15,14 @@ export function ServiceSection() {
       <div className="container max-w-full px-4 md:px-6 mx-auto"> {/* ✅ Ensure container doesn't overflow */}
         {/* Header */}
         <div className="text-center mb-12">
+
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
             What We Build
           </h1>
           <h2 className="text-muted-foreground mt-2">
             From entrepreneurs to growing businesses — we help you launch fast and scale stronger.
           </h2>
+
         </div>
 
         {/* Grid */}

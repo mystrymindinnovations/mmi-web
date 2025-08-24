@@ -278,6 +278,7 @@ export function MainContact() {
   });
 
   const onSubmit: SubmitHandler<ContactFormValues> = async (data) => {
+
     setIsSubmitting(true);
     try {
       const response = await fetch("/api/contact", {
@@ -296,12 +297,15 @@ export function MainContact() {
         alert(`Something went wrong: ${errorData.message}`);
       }
     } catch (error) {
+
       console.error("Submission error:", error);
       alert("An error occurred. Please try again later.");
+
     } finally {
       setIsSubmitting(false);
     }
   };
+
 
   return (
     <motion.section
@@ -508,6 +512,7 @@ export function MainContact() {
                     </p>
                   )}
 
+
                   <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -541,6 +546,7 @@ export function MainContact() {
 export default function Home() {
   return (
     <>
+
       <Head>
         <title>MystryMind – Digital Solutions</title>
       </Head>
@@ -548,6 +554,7 @@ export default function Home() {
       <HeroSection />
       <TrustSection />
       <WhyChooseUsSection />
+
       <DevelopmentProcessSection />
       <ProblemSolutionSection />
       <TechStackSection techStack={techStack} />

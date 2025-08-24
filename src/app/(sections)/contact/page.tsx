@@ -1,16 +1,19 @@
 'use client';
 
 import { useState } from "react";
+
 import Head from "next/head"; // ✅ For SEO meta tags
 import Link from "next/link";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
+
 import { Mail, Phone, Rocket, CheckCircle, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -208,3 +211,4 @@ export function MainContact() {
 }
 
 export default MainContact;
+

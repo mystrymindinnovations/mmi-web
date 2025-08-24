@@ -65,12 +65,14 @@ export async function POST(req: NextRequest) {
       },
     });
 
+
     // ✅ Email to Admin/Team
     const mailOptions = {
       from: `"Mystrymind Website" <${process.env.SMTP_USER}>`,
       to: "team@mystrymind.com",
       replyTo: safeEmail,
       subject: `New Inquiry form  from ${safeName}`,
+
       html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6;">
           <h2 style="color: #3498db;">New Business Inquiry</h2>
@@ -108,8 +110,10 @@ export async function POST(req: NextRequest) {
       `,
     };
 
+
     await transporter.sendMail(mailOptions); // Send to team
     await transporter.sendMail(autoReplyOptions); // Send auto-reply to candidate
+
 
     return NextResponse.json({ success: true });
   } catch (error) {

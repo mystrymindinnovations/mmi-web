@@ -40,6 +40,7 @@ const formSchema = z.object({
   recaptchaToken: z.string(),
 });
 
+
 function ApplyForm() {
   const { toast } = useToast();
   const router = useRouter();
@@ -156,6 +157,7 @@ function ApplyForm() {
 
               {/* Role */}
               <FormField
+
                 control={form.control}
                 name="role"
                 render={({ field }) => (
@@ -170,6 +172,7 @@ function ApplyForm() {
               />
 
               {/* Name */}
+
               <FormField
                 control={form.control}
                 name="name"
