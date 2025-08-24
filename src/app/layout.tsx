@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
+import Script from "next/script";
 
 const metadataBase = new URL("https://mystrymind.com");
 
@@ -88,8 +89,13 @@ export default function RootLayout({
           <Footer />
         </div>
         <Toaster />
+
+        {/* 🔐 Google reCAPTCHA v3 (loaded globally) */}
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );
 }
-

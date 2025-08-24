@@ -80,9 +80,9 @@ export function DevelopmentProcessSection() {
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
               Our Development Process
             </h1>
-            <p className="mt-2 text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="mt-2 text-muted-foreground max-w-2xl mx-auto">
               We keep it simple, collaborative, and fast — built to deliver quality results with clarity at every step.
-            </p>
+            </h2>
           </div>
 
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 items-stretch">

@@ -1,11 +1,13 @@
 // data/services.ts
-import { Smartphone, Globe, PenTool, SearchCode, Wrench } from "lucide-react";
+import { Smartphone, Globe,  SearchCode, Wrench, Paintbrush ,Cpu } from "lucide-react";
 import type { Service } from "@/types/Service";
+
+
 
 export const services: Service[] = [
   {
     title: "Mobile App Development",
-    description: "Scalable, performant apps for Android & iOS.",
+    description: "Smooth, scalable, and user-friendly apps.",
     icon: Smartphone,
     direction: "left",
     features: [
@@ -16,8 +18,8 @@ export const services: Service[] = [
     ],
   },
   {
-    title: "Website Development",
-    description: "Custom-coded websites with speed, design & SEO in mind.",
+    title: "Web Development",
+    description: "SEO-focused, lightning-fast websites.",
     icon: Globe,
     direction: "right",
     features: [
@@ -27,18 +29,19 @@ export const services: Service[] = [
       "Deployment & maintenance (Vercel, Render)",
     ],
   },
-  {
-    title: "UI/UX & Graphic Design",
-    description: "Designs that define your brand’s identity.",
-    icon: PenTool,
-    direction: "left",
-    features: [
-      "UI/UX wireframes & prototypes",
-      "Logo & branding kits",
-      "Social media creatives",
-      "Design systems in Figma / Adobe XD",
-    ],
-  },
+ {
+  title: "AI & Cloud",
+  description: "Automations and infrastructure built for growth.",
+  icon: Cpu, // or Cloud if you want to emphasize hosting
+  direction: "right",
+  features: [
+    "AI-powered chatbots & assistants",
+    "Workflow automation & integration",
+    "Cloud migration & deployment",
+    "Scalable infrastructure setup",
+  ],
+},
+
   {
     title: "SEO & Digital Presence",
     description: "Improve your online visibility & search rankings.",
@@ -63,4 +66,17 @@ export const services: Service[] = [
       "Emergency support",
     ],
   },
+ {
+  title: "Branding & Creative",
+  description: "Designs that attract, connect & sell.",
+  icon: Paintbrush, // better suited than Wrench
+  direction: "left",
+  features: [
+    "Logo & brand identity design",
+    "Creative graphics & illustrations",
+    "Marketing & social media assets",
+    "UI/UX design support",
+  ],
+}
+
 ];
