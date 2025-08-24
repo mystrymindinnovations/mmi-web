@@ -1,4 +1,3 @@
-
 'use client';
 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -6,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { useSearchParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
+import Script from "next/script";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -28,28 +28,17 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { File as FileIcon, Loader2, Upload, X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
-const MAX_FILE_SIZE = 5 * 1024 * 1024; // 5MB
-const ACCEPTED_FILE_TYPES = ["application/pdf", "application/msword", "application/vnd.openxmlformats-officedocument.wordprocessingml.document"];
-
 const formSchema = z.object({
-  name: z.string().min(2, { message: "Name must be at least 2 characters." }),
-  qualification: z.string().min(2, { message: "Qualification is required." }),
-  location: z.string().min(2, { message: "Location is required." }),
-  mobile: z.string().regex(/^\d{10}$/, { message: "Mobile number must be 10 digits." }),
-  email: z.string().email({ message: "Please enter a valid email address." }),
-  experience: z.string({ required_error: "Please select your experience level." }),
-  role: z.string({ required_error: "Please select the role you are applying for." }),
-  resume: z
-    .any()
-    .refine((file) => file, "Resume is required.")
-    .refine((file) => file?.size <= MAX_FILE_SIZE, `Max file size is 5MB.`)
-    .refine(
-      (file) => ACCEPTED_FILE_TYPES.includes(file?.type),
-      "Only .pdf, .doc, and .docx formats are supported."
-    ),
+  name: z.string().min(2),
+  qualification: z.string().min(2),
+  location: z.string().min(2),
+  mobile: z.string().regex(/^\d{10}$/),
+  email: z.string().email(),
+  experience: z.string(),
+  role: z.string(),
+  resume: z.any().optional(),
+  recaptchaToken: z.string(),
 });
-
-
 
 function ApplyForm() {
   const { toast } = useToast();
@@ -58,6 +47,7 @@ function ApplyForm() {
   const roleFromQuery = searchParams.get('role');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [resumeFile, setResumeFile] = useState<File | null>(null);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -69,14 +59,19 @@ function ApplyForm() {
       email: "",
       role: roleFromQuery || "",
       resume: undefined,
+      recaptchaToken: "",
     },
   });
 
   useEffect(() => {
-    if (roleFromQuery) {
-      form.setValue('role', roleFromQuery);
-    }
+    if (roleFromQuery) form.setValue('role', roleFromQuery);
   }, [roleFromQuery, form]);
+
+  // ✅ Google reCAPTCHA v2 callback
+  (globalThis as any).onRecaptchaSuccess = (token: string) => {
+    setCaptchaVerified(true);
+    form.setValue("recaptchaToken", token);
+  };
 
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -90,19 +85,27 @@ function ApplyForm() {
     setResumeFile(null);
     form.setValue("resume", undefined, { shouldValidate: true });
     const fileInput = document.getElementById('resume-upload') as HTMLInputElement;
-    if (fileInput) {
-      fileInput.value = '';
-    }
+    if (fileInput) fileInput.value = '';
   };
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
+    if (!captchaVerified) {
+      toast({
+        title: "Captcha Required",
+        description: "Please complete the captcha before submitting.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     setIsSubmitting(true);
     const formData = new FormData();
+
     Object.entries(values).forEach(([key, value]) => {
-      if (key === 'resume') {
-        formData.append(key, resumeFile!);
+      if (key === 'resume' && resumeFile) {
+        formData.append(key, resumeFile);
       } else {
-        formData.append(key, value);
+        formData.append(key, value as string);
       }
     });
 
@@ -117,6 +120,8 @@ function ApplyForm() {
       if (response.ok) {
         form.reset();
         removeFile();
+        setCaptchaVerified(false);
+        (window as any).grecaptcha.reset();
         router.push('/apply/success');
       } else {
         toast({
@@ -138,6 +143,9 @@ function ApplyForm() {
 
   return (
     <div className="min-h-screen bg-secondary flex items-center justify-center p-4">
+      {/* Load Google reCAPTCHA v2 */}
+      <Script src={`https://www.google.com/recaptcha/api.js`} strategy="afterInteractive" />
+
       <Card className="w-full max-w-2xl shadow-2xl">
         <CardHeader>
           <CardTitle className="text-3xl font-bold text-center nav-text-gradient">Job Application</CardTitle>
@@ -145,20 +153,23 @@ function ApplyForm() {
         <CardContent>
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-  control={form.control}
-  name="role"
-  render={({ field }) => (
-    <FormItem>
-      <FormLabel>Applying for</FormLabel>
-      <FormControl>
-        <Input {...field} readOnly className="bg-muted cursor-not-allowed" />
-      </FormControl>
-      <FormMessage />
-    </FormItem>
-  )}
-/>
 
+              {/* Role */}
+              <FormField
+                control={form.control}
+                name="role"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Applying for</FormLabel>
+                    <FormControl>
+                      <Input {...field} readOnly className="bg-muted cursor-not-allowed" />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              {/* Name */}
               <FormField
                 control={form.control}
                 name="name"
@@ -172,6 +183,8 @@ function ApplyForm() {
                   </FormItem>
                 )}
               />
+
+              {/* Qualification */}
               <FormField
                 control={form.control}
                 name="qualification"
@@ -185,7 +198,9 @@ function ApplyForm() {
                   </FormItem>
                 )}
               />
-               <FormField
+
+              {/* Location */}
+              <FormField
                 control={form.control}
                 name="location"
                 render={({ field }) => (
@@ -198,8 +213,10 @@ function ApplyForm() {
                   </FormItem>
                 )}
               />
+
+              {/* Email + Mobile */}
               <div className="grid md:grid-cols-2 gap-6">
-                 <FormField
+                <FormField
                   control={form.control}
                   name="email"
                   render={({ field }) => (
@@ -226,7 +243,8 @@ function ApplyForm() {
                   )}
                 />
               </div>
-              
+
+              {/* Experience */}
               <FormField
                 control={form.control}
                 name="experience"
@@ -252,10 +270,21 @@ function ApplyForm() {
                 )}
               />
 
+              {/* ✅ reCAPTCHA v2 Checkbox */}
+             {/* reCAPTCHA v2 Checkbox scaled down */}
+<div
+  className="g-recaptcha mt-2"
+  style={{ transform: "scale(0.85)", transformOrigin: "0 0" }} // scale down to 85%
+  data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+  data-callback="onRecaptchaSuccess"
+/>
+
+
+              {/* Resume Upload */}
               <FormField
                 control={form.control}
                 name="resume"
-                render={({ field }) => (
+                render={() => (
                   <FormItem>
                     <FormLabel>Resume/CV</FormLabel>
                     {resumeFile ? (
@@ -269,33 +298,22 @@ function ApplyForm() {
                             </p>
                           </div>
                         </div>
-                        <Button
-                          type="button"
-                          variant="ghost"
-                          size="icon"
-                          onClick={removeFile}
-                          className="h-8 w-8"
-                        >
+                        <Button type="button" variant="ghost" size="icon" onClick={removeFile}>
                           <X className="h-4 w-4" />
                         </Button>
                       </div>
                     ) : (
                       <FormControl>
-                        <Button variant="outline" className="w-full justify-start text-muted-foreground font-normal" asChild>
+                        <Button variant="outline" className="w-full justify-start text-muted-foreground font-normal" asChild disabled={!captchaVerified}>
                           <label htmlFor="resume-upload" className="cursor-pointer flex items-center">
                             <Upload className="mr-2 h-4 w-4" />
                             Upload Resume
-                            <input
-                              type="file"
-                              className="hidden"
-                              id="resume-upload"
-                              onChange={handleFileChange}
-                              accept=".pdf,.doc,.docx"
-                            />
+                            <input type="file" className="hidden" id="resume-upload" onChange={handleFileChange} accept=".pdf,.doc,.docx" disabled={!captchaVerified} />
                           </label>
                         </Button>
                       </FormControl>
                     )}
+                    {!captchaVerified && <p className="text-gray-500 text-sm mt-1"> Verify captcha to enable resume upload</p>}
                     <FormMessage />
                   </FormItem>
                 )}
@@ -304,6 +322,7 @@ function ApplyForm() {
               <Button type="submit" className="w-full btn-gradient text-lg" disabled={isSubmitting}>
                 {isSubmitting ? <Loader2 className="animate-spin" /> : 'Submit Application'}
               </Button>
+
             </form>
           </Form>
         </CardContent>
@@ -317,5 +336,5 @@ export default function ApplyPage() {
     <React.Suspense fallback={<div>Loading...</div>}>
       <ApplyForm />
     </React.Suspense>
-  )
+  );
 }

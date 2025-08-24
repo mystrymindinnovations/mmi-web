@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { ArrowRight } from 'lucide-react';
 import Link from 'next/link';
+
 import { jobRoles } from '@/data/jobRoles';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -32,6 +33,7 @@ export function CareersSection() {
 
     return (
         <>
+            {/* SEO / Meta Tags / Canonical */}
             <Head>
                 <title>IT Jobs & Careers | MystryMind Innovations</title>
                 <meta
@@ -42,27 +44,50 @@ export function CareersSection() {
                     name="keywords"
                     content="IT Jobs in India, Web Development Careers, App Development Jobs, UI/UX Designer Roles, Full Stack Developer Careers, Software Development Jobs, Remote Developer Jobs"
                 />
+                <link rel="canonical" href="https://mystrymind.com/careers" />
+
+                {/* Open Graph */}
+                <meta property="og:title" content="IT Jobs & Careers | MystryMind Innovations" />
+                <meta
+                    property="og:description"
+                    content="Explore job openings at MystryMind Innovations — Web Development Jobs, App Development Careers, UI/UX Designer Roles, and Full Stack Developer Jobs in India."
+                />
+                <meta property="og:url" content="https://mystrymind.com/careers" />
+                <meta property="og:type" content="website" />
+                <meta property="og:image" content="https://mystrymind.com/assets/logos/og-image.png" />
+
+                {/* Twitter */}
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="IT Jobs & Careers | MystryMind Innovations" />
+                <meta
+                    name="twitter:description"
+                    content="Explore job openings at MystryMind Innovations — Web Development Jobs, App Development Careers, UI/UX Designer Roles, and Full Stack Developer Jobs in India."
+                />
+                <meta name="twitter:image" content="https://mystrymind.com/assets/logos/og-image.png" />
+
+                {/* Structured Data */}
                 <script
                     type="application/ld+json"
                     dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
             </Head>
 
+            {/* Careers Section */}
             <section className="w-full py-8 md:py-12 bg-secondary" id="careers">
                 <div className="container px-4 md:px-6">
                     <div className="text-center mb-8">
-                        <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
+                        <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
                             Open IT Positions & Careers in India
-                        </h2>
+                        </h1>
                     </div>
 
                     <div className="max-w-4xl mx-auto mb-10 text-center">
-                        <p className="text-muted-foreground">
+                        <h2 className="text-muted-foreground">
                             We're always looking for passionate minds — whether you're a student, a self-learner, or an experienced professional. 
                             Join us for <strong>web development</strong>, <strong>mobile app development</strong>, <strong>UI/UX design</strong>, 
                             and <strong>full stack development</strong> careers. Your work will help us deliver world-class software and 
                             mobile applications that support our clients' success.
-                        </p>
+                        </h2>
                     </div>
 
                     <div className="max-w-6xl mx-auto">
