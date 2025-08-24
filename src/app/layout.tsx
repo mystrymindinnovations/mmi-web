@@ -5,17 +5,22 @@ import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
 
+import Script from "next/script";
+
+
 const metadataBase = new URL("https://mystrymind.com");
 
 export const metadata: Metadata = {
-  title: "Mystrymind Innovations Private Limited",
+
+  title: "MystryMind Innovations Private Limited",
   description:
-    "Mystrymind Innovations is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
+    "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
   metadataBase,
   openGraph: {
-    title: "Mystrymind Innovations Private Limited",
+    title: "MystryMind Innovations Private Limited",
     description:
-      "Mystrymind Innovations is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
+      "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions. We help businesses innovate faster with scalable, secure, and future-ready technology.",
+
     url: "https://mystrymind.com",
     siteName: "MystryMind",
     images: [
@@ -31,18 +36,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mystrymind Innovations Private Limited",
+
+    title: "MystryMind Innovations Private Limited",
     description:
-      "Mystrymind Innovations is a modern tech startup specializing in AI, cloud computing, and web solutions.",
+      "MystryMind Innovations Private Limited is a modern tech startup specializing in AI, cloud computing, and web solutions.",
+
     images: [new URL("/assets/logos/og-image.png", metadataBase).toString()],
   },
 };
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
@@ -70,7 +75,9 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              name: "Mystrymind Innovations",
+
+              name: "MystryMind Innovations Private Limited",
+
               url: "https://mystrymind.com",
               logo: "https://mystrymind.com/assets/logos/og-image.png",
               sameAs: [
@@ -83,15 +90,21 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body
-        className={cn("min-h-screen bg-background font-body antialiased")}
-      >
+
+      <body className={cn("min-h-screen bg-background font-body antialiased")}>
+
         <div className="relative flex min-h-screen flex-col">
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
         <Toaster />
+
+        {/* 🔐 Google reCAPTCHA v3 (loaded globally) */}
+        <Script
+          src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

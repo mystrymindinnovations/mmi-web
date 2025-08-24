@@ -19,10 +19,12 @@ import { Logo } from "@/components/logo";
 
 const navLinks = [
   { label: "Home", href: "/" },
+
   { label: "About Us", href: "/about" },
   { label: "Services", href: "/service" },
   { label: "Career", href: "/careers" },
   { label: "Contact Us", href: "/contact" },
+
 ];
 
 
