@@ -1,8 +1,8 @@
 import type { TechStack } from '@/types/TechStack';
 
 export const techStack: TechStack[] = [
-  { name: 'Node.js', iconLight: '/assets/icons/NodeJs-Light.svg', iconDark: '/assets/icons/NodeJs-Dark.svg' },
-  { name: 'Bootstrap', iconLight: '/assets/icons/Bootstrap.svg', iconDark: '/assets/icons/Bootstrap.svg' }, // same icon for both
+  { name: 'NodeJs', iconLight: '/assets/icons/NodeJS-Light.svg', iconDark: '/assets/icons/NodeJS-Dark.svg' },
+  { name: 'Bootstrap', iconLight: '/assets/icons/Bootstrap.svg', iconDark: '/assets/icons/Bootstrap.svg' }, 
   { name: 'CSS', iconLight: '/assets/icons/CSS.svg', iconDark: '/assets/icons/CSS.svg' },
   { name: 'Figma', iconLight: '/assets/icons/Figma-Light.svg', iconDark: '/assets/icons/Figma-Dark.svg' },
   { name: 'Flask', iconLight: '/assets/icons/Flask-Light.svg', iconDark: '/assets/icons/Flask-Dark.svg' },

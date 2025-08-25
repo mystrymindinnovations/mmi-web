@@ -1,7 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
 import { Card, CardTitle, CardDescription } from "@/components/ui/card";
+<<<<<<< HEAD
 import { Brain, Briefcase, Search, Shield, TrendingUp } from "lucide-react";
+=======
+import { Rocket, Brain,Timer, BarChart3, Shield } from "lucide-react";
+>>>>>>> main
 
 export function WhyChooseUsSection() {
   return (
@@ -13,13 +17,23 @@ export function WhyChooseUsSection() {
 
       <div className="container px-4 md:px-6">
         <div className="text-center mb-12">
+<<<<<<< HEAD
           <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
             WHY CHOOSE US
+=======
+          <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl nav-text-gradient">
+            Why Partner with Us?
+          </h1>
+          <h2 className="mt-3 text-lg text-muted-foreground">
+            Because we don’t just deliver projects — we create growth-ready
+            solutions.
+>>>>>>> main
           </h2>
         </div>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
+<<<<<<< HEAD
             {
               Icon: Search,
               title: "Discovery-Led Development",
@@ -39,6 +53,27 @@ export function WhyChooseUsSection() {
               Icon: Shield,
               title: "Security-First",
               desc: "Industry best practices for data protection",
+=======
+             {
+              Icon: Shield,
+              title: "Speed, Security & SEO",
+              desc: "High-performance, secure & optimized by default",
+            },
+            {
+              Icon: Timer,
+              title: "Startup Pace",
+              desc: "Launch in weeks, not months",
+            },
+            {
+              Icon: Rocket,
+              title: "Transparent Delivery",
+              desc: "Weekly updates & clear milestones",
+            },
+            {
+              Icon: BarChart3,
+              title: "Design + Tech to Convert",
+              desc: "Customer-focused experiences that drive growth",
+>>>>>>> main
             },
           ].map(({ Icon, title, desc }, i) => (
             <motion.div
@@ -62,6 +97,7 @@ export function WhyChooseUsSection() {
         </div>
       </div>
 
+<<<<<<< HEAD
       {/* Brand philosophy with fade-in */}
       <motion.div
         className="container px-4 md:px-6 mt-12 relative"
@@ -86,6 +122,9 @@ export function WhyChooseUsSection() {
           </div>
         </div>
       </motion.div>
+=======
+      
+>>>>>>> main
     </section>
   );
 }
