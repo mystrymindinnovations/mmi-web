@@ -48,10 +48,7 @@ function TargetIcon(props: React.SVGProps<SVGSVGElement>) {
   );
 }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> main
 export function AboutPage() {
   return (
     <section
@@ -61,21 +58,12 @@ export function AboutPage() {
       <div className="container mx-auto px-4 md:px-6">
         {/* Section heading */}
         <div className="text-center mb-10">
-<<<<<<< HEAD
-          <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
-            Who We Are
-          </h2>
-          <p className="mt-2 text-xl font-semibold bg-gradient-to-r from-brand-orange to-brand-orange-light bg-clip-text text-transparent">
-            Where Innovation Meets Intelligence
-          </p>
-=======
           <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl">
             Who We Are
           </h1>
           <h2 className="mt-2 text-xl font-semibold bg-gradient-to-r from-brand-orange to-brand-orange-light bg-clip-text text-transparent">
             Where Innovation Meets Intelligence
           </h2>
->>>>>>> main
         </div>
 
         {/* About text */}

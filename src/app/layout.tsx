@@ -4,10 +4,8 @@ import { cn } from "@/lib/utils";
 import { Toaster } from "@/components/ui/toaster";
 import { Header } from "@/components/layout/Header/Header";
 import { Footer } from "@/components/layout/Footer/Footer";
-<<<<<<< HEAD
-=======
 import Script from "next/script";
->>>>>>> main
+
 
 const metadataBase = new URL("https://mystrymind.com");
 

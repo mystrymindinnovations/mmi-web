@@ -1,10 +1,6 @@
 'use client';
 
-<<<<<<< HEAD
-import { EstimateOutput, getEstimate } from '@/ai/flows/getEstimate';
-=======
 import { EstimateOutput } from '@/ai/flows/getEstimate';
->>>>>>> main
 import { Logo } from '@/components/logo';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -12,18 +8,6 @@ import { Dialog, DialogContent, DialogFooter, DialogHeader } from '@/components/
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Download, RefreshCw } from 'lucide-react';
-<<<<<<< HEAD
-import React from 'react';
-import { services } from '@/data/services';
-import { motion } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
-
-interface EstimatePDFContentProps {
-  estimationResult: EstimateOutput;
-}
-
-const EstimatePDFContent: React.FC<EstimatePDFContentProps> = ({ estimationResult }) => (
-=======
 import React, { useRef, useState } from 'react';
 import { services } from '@/data/services';
 import { motion } from 'framer-motion';
@@ -35,7 +19,6 @@ import { useInView } from 'react-intersection-observer';
 
 // ✅ PDF Preview Content
 const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ estimationResult }) => (
->>>>>>> main
   <div className="p-8 font-sans text-gray-800 bg-white w-[800px]">
     <div className="flex flex-col space-y-4 mb-6">
       <div className="flex flex-col sm:flex-row justify-between items-center gap-4 border-b pb-4">
@@ -53,11 +36,7 @@ const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ es
         </div>
       )}
       <div className="text-center text-sm text-gray-500 max-w-xl mx-auto">
-<<<<<<< HEAD
-        <p>This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary in real-world execution</p>
-=======
         <p>This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.</p>
->>>>>>> main
       </div>
     </div>
 
@@ -87,39 +66,6 @@ const EstimatePDFContent: React.FC<{ estimationResult: EstimateOutput }> = ({ es
   </div>
 );
 
-<<<<<<< HEAD
-interface GetEstimateSectionProps {
-    serviceType: string;
-    setServiceType: (value: string) => void;
-    projectDescription: string;
-    setProjectDescription: (value: string) => void;
-    isSubmitting: boolean;
-    handleEstimate: () => void;
-    estimationResult: EstimateOutput | null;
-    isDialogOpen: boolean;
-    setIsDialogOpen: (open: boolean) => void;
-    pdfContentRef: React.RefObject<HTMLDivElement>;
-    resetForm: () => void;
-    handleDownload: () => void;
-}
-
-export function GetEstimateSection({
-    serviceType,
-    setServiceType,
-    projectDescription,
-    setProjectDescription,
-    isSubmitting,
-    handleEstimate,
-    estimationResult,
-    isDialogOpen,
-    setIsDialogOpen,
-    pdfContentRef,
-    resetForm,
-    handleDownload,
-}: GetEstimateSectionProps) {
-  const [cardRef, cardInView] = useInView({ threshold: 0.2, triggerOnce: false });
-
-=======
 export default function GetEstimatePage() {
   const [serviceType, setServiceType] = useState('');
   const [projectDescription, setProjectDescription] = useState('');
@@ -195,27 +141,17 @@ export default function GetEstimatePage() {
     });
   };
 
->>>>>>> main
   return (
     <>
       <section className="w-full py-8 md:py-12 bg-gradient-to-r from-brand-blue to-brand-blue-dark animated-gradient" id="get-estimate">
         <div className="container px-4 md:px-6">
           <div className="text-center mb-8">
-<<<<<<< HEAD
-            <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-2 text-primary-foreground">
-              Let's Make Tech Less Mysterious
-            </h2>
-            <p className="mt-2 text-lg text-primary-foreground/80">
-              Use our AI-powered tools for quick project insights.
-            </p>
-=======
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl flex items-center justify-center gap-2 text-primary-foreground">
               Let's Make Tech Less Mysterious
             </h1>
             <h2 className="mt-2 text-lg text-primary-foreground/80">
               Use our AI-powered tools for quick project insights.
             </h2>
->>>>>>> main
           </div>
 
           <motion.div
@@ -256,11 +192,6 @@ export default function GetEstimatePage() {
                     value={projectDescription}
                     onChange={(e) => setProjectDescription(e.target.value)}
                   />
-<<<<<<< HEAD
-                </div>
-
-                <Button onClick={handleEstimate} disabled={isSubmitting} className="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-lg py-6">
-=======
                   <div className="text-xs text-primary-foreground/60">
                     Word count: {(projectDescription ?? '').trim().split(/\s+/).filter(Boolean).length} / 50
                   </div>
@@ -271,7 +202,6 @@ export default function GetEstimatePage() {
                   disabled={isSubmitting}
                   className="w-full bg-brand-orange hover:bg-brand-orange-light text-white font-bold text-lg py-6"
                 >
->>>>>>> main
                   {isSubmitting ? 'Generating...' : 'Check Estimate'}
                 </Button>
               </CardContent>
@@ -280,14 +210,6 @@ export default function GetEstimatePage() {
         </div>
       </section>
 
-<<<<<<< HEAD
-      {estimationResult && (
-        <div ref={pdfContentRef} style={{ display: 'none', width: '800px' }}>
-            <EstimatePDFContent estimationResult={estimationResult} />
-        </div>
-      )}
-
-=======
       {/* Hidden PDF for download */}
       {estimationResult && (
         <div ref={pdfContentRef} style={{ display: 'none', width: '800px' }}>
@@ -296,7 +218,6 @@ export default function GetEstimatePage() {
       )}
 
       {/* Dialog */}
->>>>>>> main
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
         <DialogContent className="sm:max-w-lg w-full max-h-[90vh] overflow-y-auto bg-secondary text-foreground p-0 rounded-lg">
           <div className="p-6 space-y-6">
@@ -313,11 +234,7 @@ export default function GetEstimatePage() {
                     Service Type: {serviceType}
                   </span>
                   <CardDescription className="text-muted-foreground max-w-md mx-auto">
-<<<<<<< HEAD
-                    This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary in real-world execution
-=======
                     This estimate is generated using AI and is intended for reference only. Actual project costs and timelines may vary.
->>>>>>> main
                   </CardDescription>
                 </div>
               )}
@@ -354,7 +271,3 @@ export default function GetEstimatePage() {
     </>
   );
 }
-<<<<<<< HEAD
-export default GetEstimateSection;
-=======
->>>>>>> main

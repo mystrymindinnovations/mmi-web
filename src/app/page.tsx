@@ -2,30 +2,10 @@
 
 import React, { useState } from "react";
 import Head from "next/head";
-<<<<<<< HEAD
-import html2canvas from "html2canvas";
-import jsPDF from "jspdf";
-
-import { useToast } from "@/hooks/use-toast";
-import { getEstimate, EstimateInput, EstimateOutput } from "@/ai/flows/getEstimate";
-
-
-import { HeroSection } from "@/app/(sections)/hero/page";
-import { ServiceSection } from "@/app/(sections)/service/page";
-import { WhyChooseUsSection } from "@/app/(sections)/whyChooseUs/page";
-import { AboutPage } from "@/app/(sections)/about/page";
-import { DevelopmentProcessSection } from "@/app/(sections)/developmentProcess/page";
-import { TechStackSection } from "@/app/(sections)/techStack/page";
-import { CareersSection } from "@/app/(sections)/careers/page";
-import { ContactSection } from "@/app/(sections)/contact/page";
-import { GetEstimateSection } from "@/app/(sections)/getEstimate/page";
-
-=======
 import Link from "next/link";
 import { useForm, SubmitHandler, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
->>>>>>> main
 
 import { HeroSection } from "@/app/(sections)/hero/page";
 import { WhyChooseUsSection } from "@/app/(sections)/whyChooseUs/page";
@@ -566,11 +546,7 @@ export default function Home() {
       </Head>
 
       <HeroSection />
-<<<<<<< HEAD
-      <ServiceSection />
-=======
       <TrustSection />
->>>>>>> main
       <WhyChooseUsSection />
       <DevelopmentProcessSection />
       <ProblemSolutionSection />
